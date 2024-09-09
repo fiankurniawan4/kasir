@@ -21,7 +21,7 @@ new class extends Component {
             class="group/sidebar flex flex-col shrink-0 lg:w-[300px] w-[250px] transition-all duration-300 ease-in-out m-0 fixed z-40 inset-y-0 left-0 bg-white border-r border-r-dashed border-r-neutral-200 dark:border-r-neutral-700/70 dark:bg-gray-700"
             id="sidenav-main">
             <div class="hidden border-b border-dashed lg:block dark:border-neutral-700/70 border-neutral-200"></div>
-            
+
             {{-- User Profile --}}
             <div class="flex items-center justify-between px-8 py-5">
                 <div class="flex items-center mr-5">
@@ -35,7 +35,8 @@ new class extends Component {
                     <div class="mr-2 ">
                         <a href="javascript:void(0)"
                             class="dark:hover:text-primary hover:text-primary transition-colors duration-200 ease-in-out text-[1.075rem] font-medium dark:text-white/50 text-secondary-inverse">{{ auth()->user()->name }}</a>
-                        <span class="dark:text-white/50 font-medium block text-[0.85rem]">{{auth()->user()->role}}</span>
+                        <span
+                            class="dark:text-white/50 font-medium block text-[0.85rem]">{{ auth()->user()->role }}</span>
                     </div>
                 </div>
             </div>
@@ -44,22 +45,24 @@ new class extends Component {
                 <div class="flex flex-col w-full font-medium gap-2">
                     <div>
                         <span class="select-none flex items-center cursor-pointer">
-                            <a href="{{route('dashboard')}}"
-                                :class="route === 'dashboard' 
-                                    ? 'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' 
-                                    : 'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
+                            <a href="{{ route('dashboard') }}"
+                                :class="route === 'dashboard'
+                                    ?
+                                    'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
+                                    'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
                                 class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
-                                <x-bi-shop class="w-4 h-4"/>
+                                <x-bi-shop class="w-4 h-4" />
                                 Home
                             </a>
                         </span>
                     </div>
                     <div>
                         <span class="select-none flex items-center cursor-pointer">
-                            <a href="{{route('dashboard.product')}}"
-                                :class="route === 'dashboard.product' 
-                                    ? 'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' 
-                                    : 'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
+                            <a href="{{ route('dashboard.product') }}"
+                                :class="route === 'dashboard.product'
+                                    ?
+                                    'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
+                                    'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
                                 class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
                                 <x-grommet-shop class="w-4 h-4" />
                                 Product
@@ -68,13 +71,27 @@ new class extends Component {
                     </div>
                     <div>
                         <span class="select-none flex items-center cursor-pointer">
-                            <a href="{{route('dashboard.kategori')}}"
-                                :class="route === 'dashboard.kategori' 
-                                    ? 'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' 
-                                    : 'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
+                            <a href="{{ route('dashboard.kategori') }}"
+                                :class="route === 'dashboard.kategori'
+                                    ?
+                                    'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
+                                    'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
                                 class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
                                 <x-bi-list class="w-4 h-4" />
                                 Kategori
+                            </a>
+                        </span>
+                    </div>
+                    <div>
+                        <span class="select-none flex items-center cursor-pointer">
+                            <a href="{{ route('dashboard.pesanan') }}"
+                                :class="route === 'dashboard.pesanan'
+                                    ?
+                                    'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
+                                    'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
+                                class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
+                                <x-bi-cart class="w-4 h-4" />
+                                Pesanan
                             </a>
                         </span>
                     </div>
@@ -82,14 +99,9 @@ new class extends Component {
             </div>
             <div class="mt-auto flex justify-center py-4 px-4">
                 <div class="flex flex-col gap-2 w-full">
-                    <button
-                        class="w-full flex flex-row gap-2 items-center justify-center text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-800">
-                        <x-bi-plus class="w-6 h-6"/> 
-                        Buat Pesanan
-                    </button>
                     <button wire:click="logout"
                         class="w-full flex flex-row gap-2 items-center justify-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-800">
-                        <x-solar-exit-outline class="w-4 h-4"/> 
+                        <x-solar-exit-outline class="w-4 h-4" />
                         Logout
                     </button>
                 </div>

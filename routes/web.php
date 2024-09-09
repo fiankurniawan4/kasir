@@ -19,5 +19,8 @@ Route::view('dashboard/product', 'pages.product')
 Route::view('dashboard/kategori', 'pages.kategori')
     ->middleware(['auth', 'verified'])
     ->name('dashboard.kategori');
+Route::view('dashboard/pesanan', 'pages.pesanan')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard.pesanan');
 
 require __DIR__.'/auth.php';
