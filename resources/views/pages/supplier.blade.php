@@ -2,9 +2,9 @@
     {{-- Main Content --}}
     <div class="flex flex-col ml-80 m-4">
         <div class="w-full max-w-full">
-            <h1 class="text-2xl lg:text-4xl dark:text-white">Dashboard</h1>
+            <h1 class="text-2xl lg:text-4xl dark:text-white">Supplier</h1>
             <hr class="mt-4 mb-4 bg-neutral-400/50 dark:bg-neutral-200/50">
-            @livewire('pages.dashboard.home')
+            @livewire('pages.dashboard.supplier')
         </div>
     </div>
 </x-app-layout>

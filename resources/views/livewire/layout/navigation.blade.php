@@ -58,28 +58,60 @@ new class extends Component {
                     </div>
                     <div>
                         <span class="select-none flex items-center cursor-pointer">
-                            <a href="{{ route('dashboard.product') }}"
-                                :class="route === 'dashboard.product'
+                            <a href="{{ route('dashboard.supplier') }}"
+                                :class="route === 'dashboard.supplier'
                                     ?
                                     'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
                                     'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
                                 class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
-                                <x-grommet-shop class="w-4 h-4" />
-                                Product
+                                <x-fluentui-vehicle-truck-profile-24 class="w-4 h-4" />
+                                Supplier
                             </a>
                         </span>
                     </div>
                     <div>
-                        <span class="select-none flex items-center cursor-pointer">
-                            <a href="{{ route('dashboard.kategori') }}"
-                                :class="route === 'dashboard.kategori'
-                                    ?
-                                    'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
-                                    'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
-                                class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
-                                <x-bi-list class="w-4 h-4" />
-                                Kategori
-                            </a>
+                        <span class="select-none flex items-center cursor-pointer" x-data="{ open: false }">
+                            <div class="flex flex-col w-full">
+                                <button @click="open = !open"
+                                    :class="route === 'dashboard.product' || route === 'dashboard.kategori' ||
+                                        route === 'dashboard.stok' ?
+                                        'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
+                                        'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
+                                    class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
+
+                                    <x-grommet-shop class="w-4 h-4" />
+                                    Product
+                                    <x-grommet-down class="w-4 h-4" />
+                                </button>
+                                <div x-show="open" @click.away="open = false" x-transition>
+                                    <div class="py-2 flex flex-col gap-2 pl-6">
+                                        <a href="{{ route('dashboard.product') }}"
+                                            :class="route === 'dashboard.product' ?
+                                                'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
+                                                'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
+                                            class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
+                                            <x-grommet-shop class="w-4 h-4" />
+                                            Product
+                                        </a>
+                                        <a href="{{ route('dashboard.kategori') }}"
+                                            :class="route === 'dashboard.kategori' ?
+                                                'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
+                                                'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
+                                            class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
+                                            <x-bi-list class="w-4 h-4" />
+                                            Kategori
+                                        </a>
+                                        <a href="{{ route('dashboard.stok') }}"
+                                            :class="route === 'dashboard.stok' ?
+                                                'dark:text-white bg-neutral-200/50 dark:bg-neutral-500/50' :
+                                                'hover:bg-neutral-200/50 dark:text-neutral-400 hover:dark:text-neutral-200 hover:dark:bg-neutral-500/50'"
+                                            class="flex items-center flex-grow gap-2 text-[1.15rem] px-4 py-2 rounded-l-full">
+                                            <x-grommet-package class="w-4 h-4" />
+                                            Stok
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </span>
                     </div>
                     <div>

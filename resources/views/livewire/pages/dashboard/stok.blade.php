@@ -10,7 +10,7 @@
                                 <input name="keyword" type="text" name="hs-table-with-pagination-search"
                                     id="hs-table-with-pagination-search"
                                     class="py-2 px-3 ps-9 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                                    placeholder="Search for pesanan">
+                                    placeholder="Search for supplier">
                             </form>
                             <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-3">
                                 <svg class="size-4 text-gray-400 dark:text-neutral-500"
@@ -24,7 +24,7 @@
                         </div>
                         <button @click="modal = true"
                             class="bg-neutral-600/50 text-neutral-200/100 hover:bg-neutral-500 hover:text-neutral-50/100 dark:bg-green-400/50 dark:hover:bg-green-600/50 dark:text-white rounded-full px-2 py-2">Tambah
-                            Pesanan</button>
+                            Supplier</button>
                     </div>
                     <div class="overflow-hidden">
                         <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
@@ -39,11 +39,11 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-                                {{-- @foreach ($kategoris as $item) --}}
+                                {{-- @foreach ($supplier as $item) --}}
                                 <tr>
                                     <td
                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                        Test</td>
+                                        Oke</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                                         <div class="flex flex-row gap-2">
                                             <button
@@ -53,12 +53,13 @@
                                         </div>
                                     </td>
                                 </tr>
+                                {{-- @endforeach --}}
                             </tbody>
                         </table>
                     </div>
                     {{-- <div class="py-1 px-4">
                         <nav class="flex items-center space-x-1" aria-label="Pagination">
-                            @if ($kategoris->onFirstPage())
+                            @if ($supplier->onFirstPage())
                                 <span
                                     class="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-400 dark:text-gray-600 disabled:opacity-50">«</span>
                             @else
@@ -67,8 +68,8 @@
                                     aria-label="Previous">«</button>
                             @endif
 
-                            @foreach ($kategoris->getUrlRange(1, $kategoris->lastPage()) as $page => $url)
-                                @if ($page == $kategoris->currentPage())
+                            @foreach ($supplier->getUrlRange(1, $supplier->lastPage()) as $page => $url)
+                                @if ($page == $supplier->currentPage())
                                     <span
                                         class="min-w-[40px] flex justify-center items-center text-sm rounded-full bg-gray-200 dark:bg-neutral-700 text-gray-800 dark:text-white py-2.5">
                                         {{ $page }}
@@ -81,7 +82,7 @@
                                 @endif
                             @endforeach
 
-                            @if ($kategoris->hasMorePages())
+                            @if ($supplier->hasMorePages())
                                 <button wire:click="nextPage"
                                     class="p-2.5 min-w-[40px] inline-flex justify-center items-center gap-x-2 text-sm rounded-full text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
                                     aria-label="Next">»</button>
@@ -99,16 +100,15 @@
         <div class="absolute inset-0 bg-gray-600/50"></div>
         <!-- Isi modal -->
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg z-10 max-w-sm w-full">
-            <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Tambah Pesanan</h2>
+            <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Tambah Supplier</h2>
             <form>
                 <div class="mb-4">
                     <label for="nama" class="block text-gray-700 dark:text-white font-medium mb-2">Nama
-                        Pemesan</label>
+                        Supplier</label>
                     <input type="text" name="nama" id="nama"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
-                        placeholder="Masukkan nama pemesan">
+                        placeholder="Masukkan nama supplier">
                 </div>
-
                 <div class="flex justify-end gap-2">
                     <button type="submit" @click="modal = false"
                         class="px-4 py-2 bg-green-600 hover:bg-green-800 text-white rounded">Submit</button>

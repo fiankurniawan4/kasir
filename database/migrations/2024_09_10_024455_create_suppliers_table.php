@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pesanans', function (Blueprint $table) {
+        Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
-            $table->enum('status', ['Diproses', 'Dibatalkan', 'Diterima'])->default('Diproses');
-            $table->string('total_harga');
-            $table->foreign('product_id')->references('id')->on('products')->cascadeOnDelete();
+            $table->string('nama');
+            $table->string('nomor', 20);
+            $table->text('alamat');
+            $table->string('keterangan');
+            // $table->enum('jenis', ['']);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pesanans');
+        Schema::dropIfExists('suppliers');
     }
 };

@@ -6,18 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
-class Product extends Model
+class Supplier extends Model
 {
     use HasFactory, Searchable;
+
     protected $guarded = [];
-
-    public function priceToRupiah() {
-        return 'Rp ' . number_format($this->harga, 0, ',', '.');
-    }
-
-    public function kategori() {
-        return $this->belongsTo(Kategori::class, 'kategori_id');
-    }
 
     public function toSearchableArray(): array
     {

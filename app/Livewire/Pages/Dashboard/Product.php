@@ -29,6 +29,7 @@ class Product extends Component
         $this->editProductForm->kategori = $kategori->id;
         $this->editProductForm->harga = $product->harga;
         $this->editProductForm->stok = $product->stok;
+        $this->editProductForm->barcode = $product->barcode;
     }
 
     public function edit() {
