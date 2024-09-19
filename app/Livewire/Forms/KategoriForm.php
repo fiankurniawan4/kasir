@@ -8,7 +8,7 @@ use Livewire\Form;
 
 class KategoriForm extends Form
 {
-    #[Validate('required')]
+    #[Validate('required|unique:kategoris')]
     public $nama = '';
 
     public function postKategori() {

@@ -28,7 +28,6 @@ class Product extends Component
         $kategori = Kategori::find($product->kategori_id);
         $this->editProductForm->kategori = $kategori->id;
         $this->editProductForm->harga = $product->harga;
-        $this->editProductForm->stok = $product->stok;
         $this->editProductForm->barcode = $product->barcode;
     }
 

@@ -11,7 +11,7 @@ class EditKategoriForm extends Form
 
     public $id;
 
-    #[Validate('required')]
+    #[Validate('required|unique:kategoris')]
     public $nama = '';
 
     public function editForm() {

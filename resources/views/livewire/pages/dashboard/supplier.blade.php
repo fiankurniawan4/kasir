@@ -64,7 +64,8 @@
                                             {{ $item->keterangan }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                                             <div class="flex flex-row gap-2">
-                                                <button @click='editModal = true'
+                                                <button wire:click='selectEdit({{ $item->id }})'
+                                                    @click='editModal = true'
                                                     class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 focus:outline-none focus:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:text-blue-400">Edit</button>
                                                 <button wire:click='delete({{ $item->id }})'
                                                     class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-400 dark:focus:text-red-400">Delete</button>
@@ -162,14 +163,36 @@
         <div class="absolute inset-0 bg-gray-600/50"></div>
         <!-- Isi modal -->
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg z-10 max-w-sm w-full">
-            <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Edit Kategori</h2>
-            <form>
+            <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Edit Supplier</h2>
+            <form wire:submit='edit'>
                 <div class="mb-4">
                     <label for="nama" class="block text-gray-700 dark:text-white font-medium mb-2">Nama
-                        Kategori</label>
-                    <input type="text" id="nama"
+                        Supplier</label>
+                    <input wire:model='editSupplier.nama' type="text" id="nama"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
-                        placeholder="Masukkan nama kategori">
+                        placeholder="Masukkan nama supplier">
+                </div>
+                <div class="mb-4">
+                    <label for="alamat" class="block text-gray-700 dark:text-white font-medium mb-2">Alamat
+                        Supplier</label>
+                    <input wire:model='editSupplier.alamat' type="text" name="alamat" id="alamat"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
+                        placeholder="Masukkan alamat supplier">
+                </div>
+                <div class="mb-4">
+                    <label for="nomor" class="block text-gray-700 dark:text-white font-medium mb-2">Nomor
+                        Supplier</label>
+                    <input wire:model='editSupplier.nomor' type="number" name="nomor" id="nomor"
+                        min="1"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
+                        placeholder="Masukkan nomor supplier">
+                </div>
+                <div class="mb-4">
+                    <label for="keterangan" class="block text-gray-700 dark:text-white font-medium mb-2">Keterangan
+                        Supplier</label>
+                    <input wire:model='editSupplier.keterangan' type="text" name="keterangan" id="keterangan"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
+                        placeholder="Masukkan keterangan supplier">
                 </div>
                 <div class="flex justify-end gap-2">
                     <button type="submit" @click="editModal = false"

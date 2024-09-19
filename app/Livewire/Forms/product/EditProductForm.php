@@ -10,8 +10,16 @@ class EditProductForm extends Form
 {
     public $id;
 
-    #[Validate('required')]
     public $nama, $kategori, $harga, $barcode;
+
+    protected function rules() {
+        return [
+            'nama' => 'required|unique:products',
+            'harga' => 'required',
+            'kategori' => 'required',
+            'barcode' => 'required',
+        ];
+    }
 
     public function edit() {
         $this->validate();
@@ -23,7 +31,7 @@ class EditProductForm extends Form
             $product->barcode = $this->barcode;
             $product->save();
         } else {
-            return;
+            return false;
         }
 
         return $product;

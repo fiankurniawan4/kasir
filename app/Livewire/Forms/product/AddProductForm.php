@@ -13,7 +13,7 @@ class AddProductForm extends Form
 
     protected function rules() {
         return [
-            'nama' => 'required',
+            'nama' => 'required|unique:products',
             'kategori' => 'required',
             'harga' => 'required|numeric',
             'barcode' => 'required',

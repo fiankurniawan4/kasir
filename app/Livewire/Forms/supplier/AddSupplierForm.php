@@ -13,7 +13,7 @@ class AddSupplierForm extends Form
     
     protected function rules() {
         return [
-            'nama' => 'required',
+            'nama' => 'required|unique:suppliers',
             'alamat' => 'required',
             'nomor' => 'required|numeric|digits_between:12,15',
             'keterangan' => 'required',
