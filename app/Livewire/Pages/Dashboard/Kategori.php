@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Pages\Dashboard;
 
-use App\Livewire\Forms\EditKategoriForm;
-use App\Livewire\Forms\KategoriForm;
+use App\Livewire\Forms\kategori\EditKategoriForm;
+use App\Livewire\Forms\kategori\KategoriForm;
 use App\Models\Kategori as ModelsKategori;
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -22,7 +22,6 @@ class Kategori extends Component
             $this->editForm->nama = '';
         } elseif($this->editForm->id) {
             $this->editForm->id = '';
-            
         }
         $this->editForm->nama = $kategori->nama;
         $this->editForm->id = $kategori->id;

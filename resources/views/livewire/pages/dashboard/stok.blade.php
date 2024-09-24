@@ -135,6 +135,22 @@
                         <option value="">Select Supplier</option>
                     </select>
                 </div>
+                <div class="mb-4">
+                    <label for="jumlah" class="block text-gray-700 dark:text-white font-medium mb-2">Jumlah</label>
+                    <input type="number" name="jumlah" id="jumlah" min="1"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
+                        placeholder="Masukkan jumlah produk">
+                </div>
+                <div class="mb-4">
+                    <label for="Keterangan"
+                        class="block text-gray-700 dark:text-white font-medium mb-2">Keterangan</label>
+                    <select name="Keterangan"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500">
+                        <option value="" selected disabled>Select Keterangan</option>
+                        <option value="">Penambahan</option>
+                        <option value="">Penggurangan</option>
+                    </select>
+                </div>
                 <div class="flex justify-end gap-2">
                     <button type="submit" @click="modal = false"
                         class="px-4 py-2 bg-green-600 hover:bg-green-800 text-white rounded">Submit</button>
