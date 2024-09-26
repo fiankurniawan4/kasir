@@ -14,7 +14,7 @@ class EditProductForm extends Form
 
     protected function rules() {
         return [
-            'nama' => 'required|unique:products',
+            'nama' => 'required|unique:products,nama,' . $this->id,
             'harga' => 'required',
             'kategori' => 'required',
             'barcode' => 'required',
@@ -31,7 +31,7 @@ class EditProductForm extends Form
             $product->barcode = $this->barcode;
             $product->save();
         } else {
-            return false;
+            return;
         }
 
         return $product;

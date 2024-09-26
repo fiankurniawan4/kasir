@@ -173,7 +173,7 @@
     <div x-show="editModal" class="fixed inset-0 flex items-center justify-center z-50">
         <div class="absolute inset-0 bg-gray-600/50"></div>
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg z-10 max-w-sm w-full">
-            <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Edit Kategori</h2>
+            <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Edit Product</h2>
             <form wire:submit='edit'>
                 <div class="mb-4">
                     <label for="nama" class="block text-gray-700 dark:text-white font-medium mb-2">Nama

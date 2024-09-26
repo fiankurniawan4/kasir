@@ -52,16 +52,16 @@
                                     <tr>
                                         <td
                                             class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                            Oke</td>
+                                            {{ $item->product->nama }}</td>
                                         <td
                                             class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                            Oke</td>
+                                            {{ $item->supplier->nama }}</td>
                                         <td
                                             class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                            Oke</td>
+                                            {{ $item->jumlah }}</td>
                                         <td
                                             class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                            Oke</td>
+                                            {{ $item->keterangan }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                                             <div class="flex flex-row gap-2">
                                                 <button
@@ -119,36 +119,42 @@
         <!-- Isi modal -->
         <div class="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-lg z-10 max-w-sm w-full">
             <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Tambah Stok</h2>
-            <form>
+            <form wire:submit='addStok'>
                 <div class="mb-4">
-                    <label for="barcode" class="block text-gray-700 dark:text-white font-medium mb-2">Barcode
+                    <label for="barcode" class="block text-gray-700 dark:text-white font-medium mb-2">
                         Produk</label>
-                    <select name="barcode"
+                    <select wire:model='addForm.barcode' name="barcode"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500">
-                        <option value="">Select Barcode</option>
+                        <option value='null' disabled>Select Produk</option>
+                        @foreach ($barcode as $item)
+                            <option value="{{ $item->barcode }}">{{ $item->nama }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label for="suppier" class="block text-gray-700 dark:text-white font-medium mb-2">Supplier</label>
-                    <select name="suppier"
+                    <label for="supplier" class="block text-gray-700 dark:text-white font-medium mb-2">Supplier</label>
+                    <select wire:model='addForm.supplier' name="supplier"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500">
-                        <option value="">Select Supplier</option>
+                        <option value="null" disabled>Select Supplier</option>
+                        @foreach ($supplier as $item)
+                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mb-4">
                     <label for="jumlah" class="block text-gray-700 dark:text-white font-medium mb-2">Jumlah</label>
-                    <input type="number" name="jumlah" id="jumlah" min="1"
+                    <input wire:model='addForm.jumlah' type="number" name="jumlah" id="jumlah" min="1"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
                         placeholder="Masukkan jumlah produk">
                 </div>
                 <div class="mb-4">
                     <label for="Keterangan"
                         class="block text-gray-700 dark:text-white font-medium mb-2">Keterangan</label>
-                    <select name="Keterangan"
+                    <select wire:model='addForm.keterangan' name="Keterangan"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500">
-                        <option value="" selected disabled>Select Keterangan</option>
-                        <option value="">Penambahan</option>
-                        <option value="">Penggurangan</option>
+                        <option value="null" disabled>Select Keterangan</option>
+                        <option value="Penambahan">Penambahan</option>
+                        <option value="Pengurangan">Penggurangan</option>
                     </select>
                 </div>
                 <div class="flex justify-end gap-2">

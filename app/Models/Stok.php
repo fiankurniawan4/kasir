@@ -11,12 +11,14 @@ class Stok extends Model
     use HasFactory, Searchable;
     protected $guarded = [];
 
-    public function product() {
-        $this->belongsTo(Product::class, 'product_barcode');
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_barcode', 'barcode');
     }
 
-    public function supplier() {
-        $this->belongsTo(Supplier::class, 'supplier_id');
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class, 'supplier_id', 'id');
     }
 
     public function toSearchableArray(): array
